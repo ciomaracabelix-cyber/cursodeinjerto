@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIM — Workshop Intensivo de Microinjerto | Cabelix</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:#f5f4f9;display:flex;justify-content:center;padding:0}
+.lp{font-family:'Montserrat',sans-serif;background:#fff;color:#2C292A;max-width:680px;width:100%;margin:0 auto}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a0a2e 0%,#2C292A 50%,#1a1a3e 100%);padding:48px 32px 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border:1px solid rgba(79,56,114,0.3);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border:1px solid rgba(89,201,213,0.15);border-radius:50%}
+.badge{display:inline-block;background:rgba(89,201,213,0.15);border:1px solid rgba(89,201,213,0.4);color:#59C9D5;font-size:11px;font-weight:600;letter-spacing:1.5px;padding:6px 16px;border-radius:20px;margin-bottom:20px;text-transform:uppercase}
+.hero h1{font-size:28px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero h1 span{color:#59C9D5}
+.hero p.sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:24px;line-height:1.6}
+.hero-stats{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.stat{text-align:center}
+.stat strong{display:block;font-size:20px;font-weight:900;color:#fff}
+.stat span{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.5px}
+.stat-divider{width:1px;background:rgba(255,255,255,0.15);align-self:stretch}
+.cta-group{display:flex;flex-direction:column;gap:10px;align-items:center}
+.btn-primary{background:#59C9D5;color:#1a0a2e;font-weight:700;font-size:14px;padding:14px 28px;border:none;border-radius:8px;cursor:pointer;width:100%;max-width:320px;font-family:'Montserrat',sans-serif;letter-spacing:0.3px}
+.btn-wa{background:transparent;color:#fff;font-weight:600;font-size:13px;padding:12px 28px;border:1px solid rgba(255,255,255,0.3);border-radius:8px;cursor:pointer;width:100%;max-width:320px;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+
+/* SECCIONES */
+.section{padding:32px 24px}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#59C9D5;margin-bottom:8px}
+.section h2{font-size:20px;font-weight:800;color:#2C292A;line-height:1.3;margin-bottom:6px}
+.section p{font-size:14px;color:#5F5E5A;line-height:1.7}
+.divider{height:1px;background:#f0eef5;margin:0 24px}
+
+/* HIGHLIGHT */
+.highlight-box{background:linear-gradient(135deg,#1a0a2e,#2C292A);border-radius:12px;padding:24px;margin-top:16px;text-align:center}
+.highlight-box p{color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:4px}
+.highlight-box strong{color:#59C9D5;font-size:26px;font-weight:900;display:block}
+.highlight-box small{color:rgba(255,255,255,0.4);font-size:11px}
+
+/* ANTES/DESPUÉS
+   INSTRUCCIONES PARA CIOMARA:
+   Reemplaza cada <div class="ba-img-placeholder antes"> con:
+   <img src="imagenes/caso1-antes.jpg" alt="Caso 1 Antes" style="width:100%;height:100%;object-fit:cover">
+   Archivos: caso1-antes.jpg, caso1-despues.jpg ... caso6-antes.jpg, caso6-despues.jpg */
+.before-after-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.ba-card{border-radius:10px;overflow:hidden;border:1px solid #ede9f8}
+.ba-imgs{display:grid;grid-template-columns:1fr 1fr}
+.ba-img{height:260px;overflow:hidden;position:relative}
+.ba-img img{width:100%;height:100%;object-fit:cover}
+.ba-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.ba-img-placeholder.antes{background:#e8e4f4}
+.ba-img-placeholder.despues{background:#e0f5f7}
+.ba-tag{position:absolute;bottom:6px;left:6px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border-radius:4px}
+.ba-tag.antes{background:rgba(79,56,114,0.85);color:#fff}
+.ba-tag.despues{background:rgba(15,110,86,0.85);color:#fff}
+.ba-label{font-size:12px;font-weight:700;color:#4F3872;padding:8px 10px;text-align:center;background:#faf9fd}
+.ver-ig{display:block;width:100%;text-align:center;padding:12px;margin-top:12px;border:1px solid #ede9f8;border-radius:8px;font-size:13px;font-weight:700;color:#6D6696;background:#fff;text-decoration:none;font-family:'Montserrat',sans-serif}
+
+/* HONEST BOX */
+.honest-box{background:#fff8f0;border:1px solid #f5d9b8;border-radius:10px;padding:16px;margin-top:16px}
+.honest-box p{font-size:13px;color:#5F5E5A;line-height:1.7}
+.honest-box strong{color:#2C292A}
+
+/* TÉCNICAS */
+.tecnica-list{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.tec-item{background:#faf9fd;border:1px solid #ede9f8;border-radius:10px;padding:14px 16px}
+.tec-item strong{font-size:13px;font-weight:700;color:#4F3872;display:block;margin-bottom:4px}
+.tec-item span{font-size:12px;color:#6D6696;line-height:1.6}
+.tec-item.featured{background:linear-gradient(135deg,#1a0a2e,#2C292A);border:none}
+.tec-item.featured strong{color:#59C9D5}
+.tec-item.featured span{color:rgba(255,255,255,0.7)}
+.alta-densidad-box{background:linear-gradient(135deg,#2a0a4e,#1a0a2e);border-radius:12px;padding:24px;position:relative;overflow:hidden}
+.alta-densidad-box::before{content:'';position:absolute;top:-20px;right:-20px;width:120px;height:120px;border:1px solid rgba(89,201,213,0.2);border-radius:50%}
+.alta-densidad-box h3{font-size:16px;font-weight:800;color:#fff;margin-bottom:8px}
+.alta-densidad-box p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:16px}
+.ad-tag{display:inline-block;background:rgba(89,201,213,0.2);border:1px solid rgba(89,201,213,0.4);color:#59C9D5;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.ad-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ad-stat{background:rgba(89,201,213,0.1);border:1px solid rgba(89,201,213,0.25);border-radius:8px;padding:12px;text-align:center}
+.ad-stat strong{display:block;font-size:18px;font-weight:900;color:#59C9D5}
+.ad-stat span{font-size:10px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.5px}
+.bht-zonas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+.bht-zona{background:rgba(89,201,213,0.1);border:1px solid rgba(89,201,213,0.3);border-radius:8px;padding:10px;text-align:center}
+.bht-zona strong{display:block;font-size:12px;font-weight:700;color:#59C9D5}
+.bht-zona span{font-size:10px;color:rgba(255,255,255,0.5)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.pill{background:#f4f0fc;color:#4F3872;font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px}
+
+/* BARBA Y CEJAS */
+.barba-cejas-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.bc-card{background:#faf9fd;border:1px solid #ede9f8;border-radius:10px;overflow:hidden}
+.bc-img{background:#e8e4f4;height:120px;overflow:hidden}
+.bc-img img{width:100%;height:100%;object-fit:cover}
+.bc-img-placeholder{width:100%;height:100%;background:#e8e4f4;display:flex;align-items:center;justify-content:center}
+.bc-body{padding:12px}
+.bc-body strong{display:block;font-size:13px;font-weight:700;color:#4F3872;margin-bottom:4px}
+.bc-body p{font-size:12px;color:#6D6696;line-height:1.5;margin:0}
+
+/* INSTALACIONES
+   INSTRUCCIONES PARA CIOMARA:
+   Reemplaza cada <div class="inst-photo-placeholder"> con:
+   <img src="imagenes/instalacion-1.jpg" alt="Instalaciones" style="width:100%;height:100%;object-fit:cover">
+   Archivos: instalacion-1.jpg ... instalacion-5.jpg */
+.inst-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.inst-photo{border-radius:10px;height:120px;overflow:hidden;border:1px solid #ede9f8}
+.inst-photo img{width:100%;height:100%;object-fit:cover}
+.inst-photo-placeholder{width:100%;height:100%;background:#ede9f8;border-radius:10px;border:1px dashed #c9c0e8}
+.inst-photo.wide{grid-column:1/-1;height:160px}
+.inst-desc{background:#faf9fd;border-radius:10px;padding:16px;border:1px solid #ede9f8;margin-top:10px}
+.inst-desc strong{font-size:13px;font-weight:700;color:#4F3872;display:block;margin-bottom:6px}
+.inst-desc p{font-size:12px;color:#6D6696;line-height:1.6;margin:0}
+
+/* QUÉ INCLUYE */
+.includes-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.include-item{background:#faf9fd;border:1px solid #ede9f8;border-radius:10px;padding:14px 16px}
+.include-item strong{display:block;font-size:13px;font-weight:700;color:#4F3872;margin-bottom:4px}
+.include-item span{font-size:12px;color:#6D6696;line-height:1.5}
+.invest-row{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid #ede9f8;border-radius:10px;padding:16px;margin-top:16px}
+.invest-price{font-size:26px;font-weight:900;color:#4F3872}
+.invest-price small{display:block;font-size:11px;font-weight:400;color:#aaa}
+.invest-includes{font-size:12px;color:#6D6696;text-align:right;line-height:1.8}
+
+/* POR QUÉ CABELIX */
+.why-list{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.why-item{display:flex;gap:12px;align-items:flex-start}
+.why-dot{width:8px;height:8px;background:#59C9D5;border-radius:50%;flex-shrink:0;margin-top:6px}
+.why-text{font-size:14px;color:#2C292A;line-height:1.6}
+.why-text strong{color:#4F3872}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.faq-item{background:#faf9fd;border:1px solid #ede9f8;border-radius:10px;padding:14px 16px}
+.faq-item strong{font-size:13px;font-weight:700;color:#4F3872;display:block;margin-bottom:4px}
+.faq-item span{font-size:12px;color:#6D6696;line-height:1.6}
+
+/* TESTIMONIOS
+   INSTRUCCIONES PARA CIOMARA:
+   Para los videos: sube a YouTube como "no listado" y reemplaza el div .video-placeholder con:
+   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TU_ID_VIDEO" frameborder="0" allowfullscreen></iframe> */
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.video-placeholder{background:#1a0a2e;border-radius:10px;height:160px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.play-btn{width:44px;height:44px;background:rgba(89,201,213,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:1}
+.play-btn::after{content:'';border-left:14px solid #1a0a2e;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.video-label{font-size:11px;color:rgba(255,255,255,0.8);z-index:1;text-align:center;padding:0 10px;font-weight:600}
+.testimonial-card{background:#faf9fd;border:1px solid #ede9f8;border-radius:12px;padding:20px;margin-top:12px}
+.testimonial-card p{font-size:13px;color:#5F5E5A;font-style:italic;line-height:1.7;margin-bottom:12px}
+.testimonial-footer{display:flex;align-items:center;gap:10px}
+.testimonial-avatar{width:36px;height:36px;border-radius:50%;background:#4F3872;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.testimonial-meta strong{display:block;font-size:12px;font-weight:700;color:#2C292A}
+.testimonial-meta span{font-size:11px;color:#6D6696}
+
+/* FORMULARIO
+   INSTRUCCIONES PARA CIOMARA:
+   Reemplaza la URL del action con la URL de tu Google Apps Script:
+   <form action="https://script.google.com/macros/s/TU_SCRIPT_ID/exec" method="POST"> */
+.form-section{background:#faf9fd;padding:32px 24px;border-top:2px solid #ede9f8}
+.form-section h2{font-size:18px;font-weight:800;color:#2C292A;margin-bottom:6px}
+.form-section p{font-size:13px;color:#6D6696;margin-bottom:20px;line-height:1.6}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;font-weight:700;color:#4F3872;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.form-group input,.form-group select{width:100%;padding:11px 14px;border:1px solid #ded8f0;border-radius:8px;font-size:14px;font-family:'Montserrat',sans-serif;color:#2C292A;background:#fff;appearance:none;-webkit-appearance:none}
+.form-group input::placeholder{color:#aaa}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:#4F3872}
+.submit-btn{width:100%;background:#4F3872;color:#fff;font-weight:700;font-size:15px;padding:15px;border:none;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;margin-top:6px;transition:background 0.2s}
+.submit-btn:hover{background:#3c2a5a}
+.or-divider{text-align:center;font-size:12px;color:#aaa;margin:14px 0;position:relative}
+.or-divider::before,.or-divider::after{content:'';position:absolute;top:50%;width:42%;height:1px;background:#ede9f8}
+.or-divider::before{left:0}.or-divider::after{right:0}
+.wa-full{width:100%;background:#25D366;color:#fff;font-weight:700;font-size:14px;padding:14px;border:none;border-radius:8px;cursor:pointer;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+
+/* FOOTER Y STICKY */
+.footer-note{text-align:center;padding:20px 24px;font-size:11px;color:#aaa;line-height:1.6}
+.sticky-wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;font-weight:700;font-size:13px;padding:12px 18px;border-radius:50px;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(37,211,102,0.4);cursor:pointer;z-index:999;font-family:'Montserrat',sans-serif;border:none;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="lp">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">Workshop Intensivo · 5 días · Presencial</div>
+    <h1>Aprende microinjerto capilar.<br>Y cómo <span>cobrar por él</span>.</h1>
+    <p class="sub">5 días en sala real. Pacientes reales. Técnica, negocio y marketing incluidos.<br>Médicos generales y de cualquier especialidad, en cualquier nivel.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>+3,500</strong><span>procedimientos realizados</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>15 años</strong><span>de experiencia</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><strong>5 días</strong><span>de inmersión real</span></div>
+    </div>
+    <div class="cta-group">
+      <button class="btn-primary" onclick="document.getElementById('formulario').scrollIntoView({behavior:'smooth'})">Quiero más información</button>
+      <a class="btn-wa" href="https://wa.me/528116108455?text=Hola%2C%20me%20interesa%20información%20sobre%20el%20WIM%20de%20Cabelix" target="_blank">
+        <svg style="width:16px;height:16px;fill:#25D366;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- EL PROBLEMA -->
+  <div class="section">
+    <div class="section-label">El problema</div>
+    <h2>La mayoría de los médicos dejan dinero sobre la mesa.</h2>
+    <p style="margin-top:10px">El microinjerto capilar es uno de los procedimientos estéticos con mayor demanda y mejor margen en Latinoamérica. Un solo procedimiento puede costar entre <strong style="color:#4F3872">$2,000 y $5,000 USD</strong>. Y sin embargo, la mayoría de los médicos no lo ofrecen porque nunca tuvieron dónde aprenderlo bien.</p>
+    <div class="highlight-box">
+      <p>Facturación potencial por procedimiento</p>
+      <strong>$2,000 — $5,000 USD</strong>
+      <small>Uno de los procedimientos estéticos con mayor margen en Latinoamérica</small>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RESULTADOS REALES — 6 casos antes/después -->
+  <div class="section">
+    <div class="section-label">Resultados reales</div>
+    <h2>Más de 3,500 procedimientos hablan por sí solos.</h2>
+    <p style="margin-top:10px">Cada caso es distinto. Cada paciente tiene una densidad, una línea y unas expectativas diferentes. Esto es lo que 15 años de práctica diaria producen.</p>
+    <div class="before-after-grid">
+      <!-- CASO 1: reemplaza placeholders con <img src="imagenes/caso1-antes.jpg"> -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c1_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c1_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 1</div>
+      </div>
+      <!-- CASO 2 -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c2_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c2_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 2</div>
+      </div>
+      <!-- CASO 3 -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c3_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c3_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 3</div>
+      </div>
+      <!-- CASO 4 -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c4_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c4_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 4</div>
+      </div>
+      <!-- CASO 5 -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c5_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c5_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 5</div>
+      </div>
+      <!-- CASO 6 -->
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div class="ba-img"><img src="imagenes/c6_antes.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag antes">Antes</span></div>
+          <div class="ba-img"><img src="imagenes/c6_despues.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top"><span class="ba-tag despues">Después</span></div>
+        </div>
+        <div class="ba-label">Caso 6</div>
+      </div>
+    </div>
+    <a class="ver-ig" href="https://www.instagram.com/dr_jouleivann" target="_blank">Ver todos los casos en Instagram →</a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- EL WORKSHOP -->
+  <div class="section">
+    <div class="section-label">El workshop</div>
+    <h2>Cinco días adentro de la sala. No frente a una pantalla.</h2>
+    <p style="margin-top:10px">El WIM no es un curso teórico. Es una inmersión. Entras a sala, ves cómo se hace, pones las manos encima y practicas en un paciente real. En 5 días vas a entender por qué tantos médicos eligen esta técnica como su principal fuente de ingresos.</p>
+    <div class="honest-box">
+      <p><strong>Una cosa importante:</strong> el microinjerto capilar es una habilidad que se construye con práctica constante. El WIM te da la base técnica real, el criterio clínico y la confianza para empezar. Estamos aquí para acompañarte en ese camino.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TÉCNICAS -->
+  <div class="section">
+    <div class="section-label">Técnicas que aprenderás</div>
+    <h2>De básico a avanzado. Sin saltarse pasos.</h2>
+    <div class="tecnica-list">
+      <div class="tec-item">
+        <strong>FUE — Follicular Unit Extraction</strong>
+        <span>Extracción folicular individual con punch. La técnica más demandada hoy. Sin cicatriz lineal, recuperación rápida. Aprenderás extracción, clasificación y siembra desde cero.</span>
+      </div>
+      <div class="tec-item">
+        <strong>Long Hair — Trasplante sin rasurar</strong>
+        <span>El paciente mantiene el cabello largo durante todo el procedimiento. Mayor dificultad técnica, pero muy valorado por pacientes que no quieren que nadie note que se hicieron un trasplante.</span>
+      </div>
+      <div class="tec-item">
+        <strong>Diseño de línea capilar</strong>
+        <span>El componente más artístico y el que más diferencia al promedio del experto. Aprendes a leer el rostro, proyectar envejecimiento y diseñar resultados naturales y permanentes.</span>
+      </div>
+      <div class="tec-item" style="padding:0;overflow:hidden;border:none;background:transparent">
+        <div class="alta-densidad-box">
+          <div class="ad-tag">Técnica avanzada</div>
+          <h3>Alta Densidad — Megasesión y Gigasesión</h3>
+          <p>Dos cosas a la vez: maximizar la densidad de injertos por centímetro cuadrado y el volumen total de unidades en una sola sesión. Una megasesión supera los 2,500 injertos. Una gigasesión puede llegar a 5,000 o más. Requiere planificación precisa, equipo coordinado y criterio clínico muy afinado.</p>
+          <div class="ad-stats">
+            <div class="ad-stat"><strong>2,500+</strong><span>injertos megasesión</span></div>
+            <div class="ad-stat"><strong>5,000+</strong><span>injertos gigasesión</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="tec-item featured">
+        <strong>BHT — Body Hair Transplant</strong>
+        <span>Procedimiento sumamente meticuloso donde las unidades foliculares se obtienen de zonas donantes corporales — barba, pecho y espalda — para realizar el trasplante. Ideal cuando el área donante capilar es insuficiente o como complemento para lograr mayor densidad.</span>
+        <div class="bht-zonas">
+          <div class="bht-zona"><strong>Barba</strong><span>Zona donante</span></div>
+          <div class="bht-zona"><strong>Pecho</strong><span>Zona donante</span></div>
+          <div class="bht-zona"><strong>Espalda</strong><span>Zona donante</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Manejo de complicaciones</span>
+      <span class="pill">Criterio de selección de pacientes</span>
+      <span class="pill">Protocolo pre y post operatorio</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BARBA Y CEJAS -->
+  <div class="section">
+    <div class="section-label">Especialidad complementaria</div>
+    <h2>Microinjerto de barba y cejas.</h2>
+    <p style="margin-top:10px">Dos procedimientos con altísima demanda que la mayoría de los médicos no ofrece por falta de entrenamiento específico. El WIM los cubre con el mismo nivel de detalle que el trasplante capilar.</p>
+    <div class="barba-cejas-grid">
+      <!-- Reemplaza placeholder con <img src="imagenes/barba-antes-despues.jpg"> -->
+      <div class="bc-card">
+        <div class="bc-img" style="background:#f5f5f5"></div>
+        <div class="bc-body"><strong>Trasplante de barba</strong><p>Diseño y densificación con técnica específica de ángulo rasante. Alta demanda masculina en los últimos 3 años.</p></div>
+      </div>
+      <div class="bc-card">
+        <div class="bc-img" style="background:#f5f5f5"></div>
+        <div class="bc-body"><strong>Trasplante de cejas</strong><p>Diseño anatómico respetando la arquitectura natural. Alta precisión en dirección y densidad. Muy solicitado por pacientes femeninos y masculinos.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INSTALACIONES — 5 fotos sin etiqueta -->
+  <div class="section">
+    <div class="section-label">Las instalaciones</div>
+    <h2>Infraestructura clínica de alto nivel, instalaciones diseñadas para microinjerto capilar.</h2>
+    <p style="margin-top:10px">Cabelix cuenta con salas de procedimientos diseñadas específicamente para microinjerto capilar. Cuando vienes aquí, cada detalle está listo para que te concentres en aprender.</p>
+    <!-- Reemplaza cada placeholder con <img src="imagenes/instalacion-N.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+    <div class="inst-grid">
+      <div class="inst-photo" style="height:auto"><img src="imagenes/inst1.jpg" style="width:100%;height:auto;display:block;border-radius:10px"></div>
+      <div class="inst-photo" style="height:auto"><img src="imagenes/inst2.jpg" style="width:100%;height:auto;display:block;border-radius:10px"></div>
+      <div class="inst-photo" style="height:auto"><img src="imagenes/inst3.jpg" style="width:100%;height:auto;display:block;border-radius:10px"></div>
+      <div class="inst-photo" style="height:auto"><img src="imagenes/inst4.jpg" style="width:100%;height:auto;display:block;border-radius:10px"></div>
+      <div class="inst-photo wide" style="height:auto"><img src="imagenes/inst5.jpg" style="width:100%;height:auto;display:block;border-radius:10px"></div>
+    </div>
+    <div class="inst-desc">
+      <strong>Equipamiento especializado</strong>
+      <p>Sistema óptico de magnificación, punches de precisión, conservación de injertos y mobiliario clínico de alto nivel.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- QUÉ INCLUYE -->
+  <div class="section">
+    <div class="section-label">Qué incluye</div>
+    <h2>Todo en un solo precio.</h2>
+    <div class="includes-grid">
+      <div class="include-item"><strong>5 días de formación</strong><span>Lunes a viernes o fin de semana, tú eliges</span></div>
+      <div class="include-item"><strong>Hospedaje incluido</strong><span>Para 1 persona durante los 5 días</span></div>
+      <div class="include-item"><strong>Clases con el Dr. Julio Iván</strong><span>Personalmente, no con un asistente</span></div>
+      <div class="include-item"><strong>Práctica real</strong><span>Participas en procedimientos con pacientes reales</span></div>
+      <div class="include-item"><strong>Administración y MKT</strong><span>Estrategia de captación de pacientes desde cero</span></div>
+      <div class="include-item"><strong>Todos los niveles</strong><span>Básico a avanzado, adaptado a ti</span></div>
+    </div>
+    <div class="invest-row">
+      <div><div class="invest-price">$5,500 USD<small>inversión total</small></div></div>
+      <div class="invest-includes">Hospedaje incluido<br>Fechas personalizables<br>Cupo limitado</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- POR QUÉ CABELIX -->
+  <div class="section">
+    <div class="section-label">Por qué Cabelix</div>
+    <h2>Aprendes de alguien que lo hace todos los días.</h2>
+    <div class="why-list">
+      <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>El Dr. Julio Iván te entrena directamente.</strong> No un instructor delegado. No un video. Tú, él y el paciente.</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>15 años y +3,500 procedimientos de respaldo.</strong> Cada técnica que enseña la practica regularmente, no la enseña de memoria.</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>Programa 100% personalizado.</strong> Si ya tienes experiencia, no pierdes tiempo en lo básico. Si empiezas de cero, no te dejan atrás.</div></div>
+      <div class="why-item"><div class="why-dot"></div><div class="why-text"><strong>El único workshop en el mundo donde aprendes la técnica, el negocio y la estrategia de pacientes en el mismo lugar.</strong></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <div class="section">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2>Lo que nos preguntan antes de inscribirse.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><strong>¿Necesito experiencia previa en procedimientos estéticos?</strong><span>No. El programa se adapta a tu nivel. Si eres médico general sin experiencia en estética, empezamos desde la base. Si ya tienes procedimientos encima, vamos directo a lo avanzado.</span></div>
+      <div class="faq-item"><strong>¿El hospedaje está realmente incluido?</strong><span>Sí. El precio de $5,500 USD incluye hospedaje para 1 persona durante los 5 días del workshop en Monterrey. Solo cubres tu vuelo.</span></div>
+      <div class="faq-item"><strong>¿Puedo elegir las fechas?</strong><span>Sí. Coordinamos la agenda según tu disponibilidad. Puede ser de lunes a viernes o en fin de semana.</span></div>
+      <div class="faq-item"><strong>¿Voy a practicar en pacientes reales?</strong><span>Sí. Entras a sala de procedimientos con pacientes reales y participas activamente bajo supervisión directa del Dr. Julio Iván.</span></div>
+      <div class="faq-item"><strong>¿El curso tiene valor curricular o certificación?</strong><span>Sí. Al finalizar el workshop recibes una constancia de participación emitida por Cabelix.</span></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TESTIMONIOS -->
+  <div class="section">
+    <div class="section-label">Testimonios</div>
+    <h2>Lo que dicen los médicos que ya pasaron por aquí.</h2>
+    <div class="video-grid">
+      <!-- Reemplaza con iframe de YouTube no listado -->
+      <div class="video-placeholder">
+        <div class="play-btn"></div>
+        <div class="video-label">Dra. Alejandra González<br>Dermatóloga · Panamá</div>
+      </div>
+      <div class="video-placeholder">
+        <div class="play-btn"></div>
+        <div class="video-label">Dr. Jorge España<br>Médico Estético · México</div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p>"Llegué con conocimientos básicos de dermatología pero sin ninguna experiencia en microinjerto. Lo que más me sorprendió fue la profundidad técnica — no es teoría, es sala, instrumental y paciente real desde el primer día. Volví a Panamá con criterio clínico y una estrategia clara para empezar."</p>
+      <div class="testimonial-footer"><div class="testimonial-avatar">AG</div><div class="testimonial-meta"><strong>Dra. Alejandra González</strong><span>Dermatóloga · Panamá</span></div></div>
+    </div>
+    <div class="testimonial-card">
+      <p>"Venía con la duda de si como médico general podía aprender esto. La respuesta es sí. El programa se adapta a tu nivel y el Dr. Julio Iván tiene una forma de enseñar que hace que lo complejo se vuelva manejable. Ya estoy viendo mis primeros pacientes."</p>
+      <div class="testimonial-footer"><div class="testimonial-avatar">SR</div><div class="testimonial-meta"><strong>Dra. Sofía Rodríguez</strong><span>Médico General · Estados Unidos</span></div></div>
+    </div>
+    <div class="testimonial-card">
+      <p>"Ya tenía algo de experiencia en procedimientos estéticos, así que fui directo a las técnicas avanzadas. El componente de administración y captación de pacientes fue lo que no esperaba y lo que más valor me dio. En 6 semanas ya recuperé una parte importante de la inversión."</p>
+      <div class="testimonial-footer"><div class="testimonial-avatar">JE</div><div class="testimonial-meta"><strong>Dr. Jorge España</strong><span>Médico Estético · México</span></div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FORMULARIO
+       INSTRUCCIONES PARA CIOMARA:
+       1. Reemplaza action="URL_DEL_SCRIPT" con la URL de Google Apps Script
+       2. El script enviará los datos a Google Sheets y mandará WhatsApp al asesor -->
+  <div class="form-section" id="formulario">
+    <h2>Solicita información del próximo WIM</h2>
+    <p>Un asesor te contactará en menos de 24 horas para resolver tus dudas y ayudarte a elegir la mejor fecha.</p>
+    <div id="form-success" style="display:none;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
+      <p style="color:#2e7d32;font-weight:700;font-size:16px;margin:0">✅ ¡Gracias! Tus datos fueron enviados correctamente.</p>
+      <p style="color:#388e3c;font-size:13px;margin-top:8px;">Nos pondremos en contacto contigo pronto.</p>
+    </div>
+    <form id="wim-form" onsubmit="submitForm(event)">
+      <div class="form-group"><label>Nombre completo</label><input type="text" name="nombre" placeholder="Dr. / Dra." required></div>
+      <div class="form-group"><label>País</label>
+        <select name="pais" required>
+          <option value="">Selecciona tu país</option>
+          <option>México</option><option>Colombia</option><option>Argentina</option>
+          <option>Chile</option><option>Perú</option><option>Venezuela</option>
+          <option>Panamá</option><option>España</option><option>Estados Unidos</option><option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Especialidad</label>
+        <select name="especialidad" required>
+          <option value="">¿Cuál es tu especialidad?</option>
+          <option>Médico General</option><option>Dermatología</option>
+          <option>Cirugía Plástica</option><option>Medicina Estética</option>
+          <option>Otra especialidad</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Correo electrónico</label><input type="email" name="email" placeholder="doctor@correo.com" required></div>
+      <div class="form-group"><label>WhatsApp (con código de país)</label><input type="tel" name="whatsapp" placeholder="+52 81 0000 0000" required></div>
+      <button type="submit" class="submit-btn">Quiero información del WIM</button>
+    </form>
+    <div class="or-divider">o si prefieres hablar directo</div>
+    <a class="wa-full" href="https://wa.me/528116108455?text=Hola%2C%20me%20interesa%20información%20sobre%20el%20WIM%20de%20Cabelix" target="_blank">
+      <svg style="width:18px;height:18px;fill:#fff;flex-shrink:0" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir directo por WhatsApp
+    </a>
+  </div>
+
+  <div class="footer-note">
+    Cabelix · Clínica Líder en Microinjerto Capilar<br>
+    Monterrey, México · cabelix.com
+  </div>
+
+</div>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a class="sticky-wa" href="https://wa.me/528116108455?text=Hola%2C%20me%20interesa%20información%20sobre%20el%20WIM%20de%20Cabelix" target="_blank">
+  <svg style="width:16px;height:16px;fill:#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  var form = document.getElementById("wim-form");
+  var btn = form.querySelector("button[type=submit]");
+  btn.textContent = "Enviando...";
+  btn.disabled = true;
+  fetch("https://script.google.com/macros/s/AKfycbxEabHpZPqS9Buh26QHhxxvgwOMHR2UzW96XBOW9rDkd7088dgwPRh3dIgeR-5HfA_S/exec", {
+    method: "POST", body: new FormData(form)
+  }).then(function() {
+    form.style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+  }).catch(function() {
+    form.style.display = "none";
+    document.getElementById("form-success").style.display = "block";
+  });
+}
+</script>
+</body>
+</html>
